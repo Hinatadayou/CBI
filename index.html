@@ -1,5 +1,49 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <p>Hello</p>
-    </head>
+<head>
+<title>Password Strength Tester</title>
+<script>
+function checkPasswordStrength() {
+    var password = document.getElementById("password").value;
+    var strengthBar = document.getElementById("strengthBar");
+    var strength = 0;
+
+    if (password.match(/[a-z]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[A-Z]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[0-9]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[\W]+/)) {
+        strength += 1;
+    }
+
+    switch(strength) {
+        case 0:
+            strengthBar.value = 20;
+            break;
+        case 1:
+            strengthBar.value = 40;
+            break;
+        case 2:
+            strengthBar.value = 60;
+            break;
+        case 3:
+            strengthBar.value = 80;
+            break;
+        case 4:
+            strengthBar.value = 100;
+            break;
+    }
+}
+</script>
+</head>
+<body>
+    <label for="password">Password:</label>
+    <input type="password" id="password" oninput="checkPasswordStrength()" />
+    <progress id="strengthBar" value="0" max="100"></progress>
+</body>
 </html>
