@@ -59,9 +59,12 @@
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>Sed amet aliquam</h2>
+										<h2>Password Strength Tester</h2>
 									</header>
-									<p>hfsdyikfgaksdkf</p>
+                                    <label for="password">Password:</label>
+                                    <input type="password" id="password" oninput="checkPasswordStrength()" />
+                                    <progress id="strengthBar" value="0" max="100"></progress>
+                                    <p><h8>Clarification: This website will not save any password.</h8></p>
 								</div>
 							</section>
 
@@ -93,6 +96,44 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script>
+                function checkPasswordStrength() {
+                    var password = document.getElementById("password").value;
+                    var strengthBar = document.getElementById("strengthBar");
+                    var strength = 0;
+                
+                    if (password.match(/[a-z]+/)) {
+                        strength += 1;
+                    }
+                    if (password.match(/[A-Z]+/)) {
+                        strength += 1;
+                    }
+                    if (password.match(/[0-9]+/)) {
+                        strength += 1;
+                    }
+                    if (password.match(/[\W]+/)) {
+                        strength += 1;
+                    }
+                
+                    switch(strength) {
+                        case 0:
+                            strengthBar.value = 20;
+                            break;
+                        case 1:
+                            strengthBar.value = 40;
+                            break;
+                        case 2:
+                            strengthBar.value = 60;
+                            break;
+                        case 3:
+                            strengthBar.value = 80;
+                            break;
+                        case 4:
+                            strengthBar.value = 100;
+                            break;
+                    }
+                }
+                </script>
 
 	</body>
 </html>
