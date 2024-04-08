@@ -3380,7 +3380,7 @@ input, select, textarea {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		background-image: url("../../images/banner.jpg"), url("/inner.jpeg");
+		background-image: url("../../images/inner.jpeg");
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3590,6 +3590,7 @@ input, select, textarea {
 	#main {
 		background-color: #2a2f4a;
 	}
+	
 
 		#main > * {
 			border-top: solid 1px rgba(212, 212, 255, 0.1);
@@ -3619,7 +3620,7 @@ input, select, textarea {
 			background-color: transparent;
 			border-bottom: solid 1px rgba(212, 212, 255, 0.1);
 		}
-
+		
 /* Contact */
 
 	#contact {
